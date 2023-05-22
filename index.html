@@ -15,7 +15,17 @@
                 <div id="items_container">
                     <div class="my_img">
                         <img :src="movie.carousel[activeImage].image" alt="poster">
+                        <div class="title">
+                            {{movie.carousel[activeImage].title}}
+                            <div class="description">
+                                {{movie.carousel[activeImage].text}}
+                            </div>
+                        </div> 
+                        <h4></h4>
                     </div>
+                   <div class="rightSlider">
+                    <img v-for="(img, indx) in movie.carousel" :src="img.image" :alt="img.title" :class="activeImage === indx ? 'blueBorder' : ''">
+                   </div>
                     <div id="next" @click="nextImage">
                         <i class="fa-solid fa-arrow-up"></i>
                     </div>
